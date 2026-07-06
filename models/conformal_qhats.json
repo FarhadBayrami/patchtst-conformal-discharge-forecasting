@@ -1,0 +1,50 @@
+{
+  "alpha": 0.1,
+  "coverage_target": 0.9,
+  "n_calibration": 8700,
+  "global": {
+    "symmetric": 5.635,
+    "q_lower": 5.098,
+    "q_upper": 6.301
+  },
+  "peak": {
+    "threshold_m3s": 200.0,
+    "q_lower": 8.26,
+    "q_upper": 249.954,
+    "n": 102
+  },
+  "seasonal": {
+    "DJF": {
+      "q_lower": 7.941,
+      "q_upper": 5.076,
+      "n": 2100
+    },
+    "MAM": {
+      "q_lower": 4.678,
+      "q_upper": 11.047,
+      "n": 2208
+    },
+    "JJA": {
+      "q_lower": 0.272,
+      "q_upper": 4.533,
+      "n": 2208
+    },
+    "SON": {
+      "q_lower": 6.642,
+      "q_upper": 5.398,
+      "n": 2184
+    },
+    "global": {
+      "q_lower": 5.098,
+      "q_upper": 6.301
+    }
+  },
+  "v2_params": {
+    "peak_trigger_m3s": 60.0,
+    "rise_window_hours": 3,
+    "rise_trigger_m3s": 30.0,
+    "fall_trigger_m3s": 20.0,
+    "fall_scale_mult": 1.6,
+    "head_disagreement_mult": 1.5
+  }
+}

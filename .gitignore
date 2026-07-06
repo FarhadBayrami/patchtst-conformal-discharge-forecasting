@@ -1,0 +1,23 @@
+# Raw data — never push
+data/raw/
+data/processed/
+
+# Model weights — large binary files
+models/best_model.pt
+models/checkpoint.pt
+
+# Python environment — not needed on GitHub
+.venv/
+.idea/
+__pycache__/
+*.pyc
+*.pyo
+
+# Keep these (results and report)
+!outputs/
+!outputs/plots/
+!outputs/*.csv
+!outputs/*.html
+!outputs/*.pdf
+!outputs/*.png
+!models/conformal_qhats.json

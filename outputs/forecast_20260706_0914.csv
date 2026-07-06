@@ -1,0 +1,2 @@
+"run_timestamp","forecast_time","Qfor_mid","Qfor_low","Qfor_high","QM_head1","QM_head2","blend_weight","head_disagreement","rise_3h","Q_TOPKAPI","band_width","flood_alert","coverage_pct","model_version"
+"2026-07-06 07:14 UTC","2026-01-01 00:00",11.948,4.007,19.667,13.722,8.576,0.3447,5.146,0.022,17.47,15.66,0,90.0,"unknown"

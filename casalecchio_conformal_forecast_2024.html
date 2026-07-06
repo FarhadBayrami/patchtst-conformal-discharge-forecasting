@@ -1,0 +1,151 @@
+
+<h2 class="sr-only">PatchTST discharge forecast with 90% conformal prediction bands for Casalecchio di Reno station 425, full year 2024, showing observed discharge, model forecast, TOPKAPI reference and uncertainty bands. Overall coverage 92.8%, peak flood coverage 95.6% across 159 events above 200 cubic metres per second.</h2>
+
+<style>
+.leg{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:8px}
+.li{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text-secondary)}
+.sw{width:10px;height:10px;border-radius:2px;display:inline-block;flex-shrink:0}
+.met{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:14px}
+.mc{background:var(--surface-1);border-radius:var(--radius);padding:8px 10px;text-align:center}
+.ml{font-size:10px;color:var(--text-secondary);margin-bottom:2px}
+.mv{font-size:18px;font-weight:500}
+.ms{font-size:10px;color:var(--text-muted)}
+.cht{position:relative;width:100%;height:300px;margin-bottom:6px}
+.cht2{position:relative;width:100%;height:220px;margin-bottom:6px}
+.sec{font-size:12px;font-weight:500;color:var(--text-secondary);margin:10px 0 4px;text-transform:uppercase;letter-spacing:.04em}
+</style>
+
+<div style="padding:.75rem 0">
+
+<div class="leg">
+  <span class="li"><span class="sw" style="background:rgba(29,158,117,0.3);border:1px solid rgba(29,158,117,0.7)"></span>90% band</span>
+  <span class="li"><span style="width:18px;height:2px;background:#1D9E75;display:inline-block"></span>Qfor_mid</span>
+  <span class="li"><span style="width:18px;height:2px;background:#1565C0;display:inline-block"></span>QM observed</span>
+  <span class="li"><span style="width:18px;height:0;border-top:2px dashed #2E7D32;display:inline-block"></span>Q TOPKAPI</span>
+  <span class="li"><span style="width:18px;height:0;border-top:1.5px dotted #BA7517;display:inline-block"></span>flood alert 200 m³/s</span>
+</div>
+
+<div class="sec">Full year 2024 — test set (unseen during training)</div>
+<div class="cht"><canvas id="c1" role="img" aria-label="Full year 2024 discharge forecast with 90% uncertainty band. Major flood events visible in February (723 m³/s), September (608 m³/s), October (911 m³/s) and November (365 m³/s). Coverage 92.8%, peak flood coverage 95.6%.">Full year PatchTST discharge forecast Casalecchio 2024 with conformal prediction bands.</canvas></div>
+
+<div class="sec">Monthly coverage breakdown</div>
+<div style="position:relative;width:100%;height:130px;margin-bottom:6px"><canvas id="c2" role="img" aria-label="Monthly coverage bar chart. October lowest at 78.5% due to unprecedented 910 m³/s flood. Most months above 90%.">Monthly coverage percentages, Casalecchio 2024.</canvas></div>
+
+<div class="met">
+  <div class="mc"><div class="ml">overall coverage</div><div class="mv" style="color:var(--text-success)">92.8%</div><div class="ms">target 90%</div></div>
+  <div class="mc"><div class="ml">peak-flow coverage</div><div class="mv" style="color:var(--text-success)">95.6%</div><div class="ms">n=159 &gt;200 m³/s</div></div>
+  <div class="mc"><div class="ml">max observed</div><div class="mv">910.6</div><div class="ms">m³/s · 18 Oct</div></div>
+  <div class="mc"><div class="ml">mean band width</div><div class="mv">44.3</div><div class="ms">m³/s</div></div>
+</div>
+
+<div style="font-size:10px;color:var(--text-muted);text-align:center;margin-top:8px">Station 425 Casalecchio di Reno · PatchTST + conformal prediction · test NSE 0.934 · PBIAS −6.1%</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const D=[{"t":"01-03","obs":13.1,"mid":17.5,"lo":9.6,"hi":22.6,"top":9.5,"cov":1,"pk":0},{"t":"01-03","obs":26.5,"mid":13.7,"lo":5.8,"hi":18.8,"top":10.2,"cov":0,"pk":0},{"t":"01-04","obs":28.2,"mid":27.5,"lo":19.6,"hi":36.5,"top":9.9,"cov":1,"pk":0},{"t":"01-06","obs":58.5,"mid":64.8,"lo":50.8,"hi":314.7,"top":21.2,"cov":1,"pk":0},{"t":"01-06","obs":162.4,"mid":114.0,"lo":106.1,"hi":364.0,"top":51.5,"cov":1,"pk":0},{"t":"01-07","obs":192.4,"mid":188.1,"lo":179.0,"hi":438.1,"top":139.8,"cov":1,"pk":0},{"t":"01-08","obs":135.0,"mid":133.3,"lo":125.3,"hi":383.2,"top":108.9,"cov":1,"pk":0},{"t":"01-09","obs":79.4,"mid":75.3,"lo":67.4,"hi":325.3,"top":45.6,"cov":1,"pk":0},{"t":"01-09","obs":47.1,"mid":64.7,"lo":56.8,"hi":314.7,"top":33.6,"cov":0,"pk":0},{"t":"01-10","obs":31.6,"mid":36.7,"lo":28.8,"hi":41.8,"top":23.1,"cov":1,"pk":0},{"t":"01-17","obs":40.9,"mid":71.1,"lo":63.1,"hi":321.0,"top":28.0,"cov":0,"pk":0},{"t":"01-18","obs":106.9,"mid":119.0,"lo":111.1,"hi":369.0,"top":75.4,"cov":0,"pk":0},{"t":"01-19","obs":63.4,"mid":64.9,"lo":57.0,"hi":314.8,"top":34.2,"cov":1,"pk":0},{"t":"01-25","obs":11.1,"mid":8.6,"lo":0.6,"hi":13.6,"top":11.0,"cov":1,"pk":0},{"t":"02-11","obs":220.4,"mid":167.4,"lo":157.1,"hi":417.4,"top":105.5,"cov":1,"pk":1},{"t":"02-11","obs":158.4,"mid":153.8,"lo":120.9,"hi":403.8,"top":114.4,"cov":1,"pk":0},{"t":"02-24","obs":138.8,"mid":115.9,"lo":60.8,"hi":365.8,"top":129.0,"cov":1,"pk":0},{"t":"02-27","obs":299.0,"mid":218.3,"lo":197.2,"hi":468.3,"top":277.5,"cov":1,"pk":1},{"t":"02-27","obs":457.5,"mid":320.2,"lo":284.7,"hi":570.2,"top":369.8,"cov":1,"pk":1},{"t":"02-27","obs":535.9,"mid":460.8,"lo":345.1,"hi":710.8,"top":451.8,"cov":1,"pk":1},{"t":"02-27","obs":608.1,"mid":606.0,"lo":382.1,"hi":856.0,"top":513.1,"cov":1,"pk":1},{"t":"02-27","obs":673.5,"mid":632.8,"lo":430.7,"hi":882.7,"top":550.0,"cov":1,"pk":1},{"t":"02-27","obs":714.9,"mid":647.4,"lo":448.5,"hi":897.4,"top":564.7,"cov":1,"pk":1},{"t":"02-27","obs":723.3,"mid":646.7,"lo":480.9,"hi":896.7,"top":563.0,"cov":1,"pk":1},{"t":"02-27","obs":706.6,"mid":612.9,"lo":478.2,"hi":862.9,"top":552.1,"cov":1,"pk":1},{"t":"02-27","obs":665.3,"mid":507.9,"lo":333.6,"hi":757.9,"top":413.3,"cov":1,"pk":1},{"t":"02-27","obs":528.0,"mid":365.8,"lo":36.4,"hi":615.7,"top":349.2,"cov":1,"pk":1},{"t":"02-27","obs":457.5,"mid":347.8,"lo":91.5,"hi":597.7,"top":344.6,"cov":1,"pk":1},{"t":"02-27","obs":543.8,"mid":385.7,"lo":366.4,"hi":635.7,"top":405.9,"cov":1,"pk":1},{"t":"02-27","obs":591.9,"mid":439.5,"lo":429.1,"hi":689.4,"top":439.1,"cov":1,"pk":1},{"t":"02-28","obs":608.1,"mid":471.6,"lo":447.5,"hi":721.6,"top":453.0,"cov":1,"pk":1},{"t":"02-28","obs":575.8,"mid":472.0,"lo":413.3,"hi":721.9,"top":443.4,"cov":1,"pk":1},{"t":"02-28","obs":465.2,"mid":403.6,"lo":294.8,"hi":653.6,"top":375.3,"cov":1,"pk":1},{"t":"02-28","obs":316.3,"mid":308.5,"lo":156.2,"hi":558.4,"top":258.5,"cov":1,"pk":1},{"t":"02-28","obs":235.1,"mid":229.8,"lo":130.0,"hi":479.8,"top":165.1,"cov":1,"pk":1},{"t":"02-28","obs":197.0,"mid":198.8,"lo":149.1,"hi":448.7,"top":130.7,"cov":1,"pk":0},{"t":"03-10","obs":316.3,"mid":286.1,"lo":236.0,"hi":536.0,"top":218.0,"cov":1,"pk":1},{"t":"03-10","obs":465.2,"mid":314.6,"lo":302.8,"hi":564.6,"top":271.6,"cov":1,"pk":1},{"t":"03-10","obs":381.4,"mid":330.8,"lo":309.5,"hi":580.8,"top":305.9,"cov":1,"pk":1},{"t":"03-28","obs":220.4,"mid":222.2,"lo":200.6,"hi":472.1,"top":210.0,"cov":1,"pk":1},{"t":"04-01","obs":65.9,"mid":85.2,"lo":80.5,"hi":335.2,"top":85.7,"cov":0,"pk":0},{"t":"05-21","obs":42.9,"mid":35.3,"lo":0.0,"hi":46.3,"top":49.2,"cov":1,"pk":0},{"t":"06-24","obs":197.0,"mid":204.7,"lo":133.0,"hi":454.7,"top":256.4,"cov":1,"pk":0},{"t":"06-24","obs":210.9,"mid":203.5,"lo":177.8,"hi":453.5,"top":300.8,"cov":1,"pk":1},{"t":"06-25","obs":434.4,"mid":178.9,"lo":80.0,"hi":428.8,"top":405.3,"cov":0,"pk":1},{"t":"06-25","obs":528.0,"mid":183.4,"lo":151.2,"hi":433.3,"top":439.4,"cov":0,"pk":1},{"t":"06-25","obs":457.5,"mid":240.8,"lo":192.4,"hi":490.8,"top":433.6,"cov":1,"pk":1},{"t":"06-25","obs":419.1,"mid":254.3,"lo":233.4,"hi":504.3,"top":345.3,"cov":1,"pk":1},{"t":"06-25","obs":170.6,"mid":169.2,"lo":50.2,"hi":419.2,"top":260.8,"cov":1,"pk":0},{"t":"07-04","obs":5.2,"mid":6.2,"lo":5.6,"hi":10.8,"top":12.5,"cov":0,"pk":0},{"t":"08-03","obs":0.0,"mid":0.0,"lo":0.0,"hi":4.5,"top":3.5,"cov":1,"pk":0},{"t":"09-09","obs":110.2,"mid":140.1,"lo":119.8,"hi":390.1,"top":181.6,"cov":0,"pk":0},{"t":"09-18","obs":188.0,"mid":133.4,"lo":126.7,"hi":383.3,"top":167.6,"cov":1,"pk":0},{"t":"09-18","obs":287.7,"mid":142.8,"lo":136.1,"hi":392.7,"top":227.1,"cov":1,"pk":1},{"t":"09-18","obs":411.6,"mid":199.1,"lo":182.4,"hi":449.0,"top":328.7,"cov":1,"pk":1},{"t":"09-18","obs":473.0,"mid":248.6,"lo":204.4,"hi":498.5,"top":390.3,"cov":1,"pk":1},{"t":"09-19","obs":559.8,"mid":349.6,"lo":292.5,"hi":599.5,"top":446.4,"cov":1,"pk":1},{"t":"09-19","obs":608.1,"mid":633.2,"lo":363.3,"hi":903.1,"top":505.5,"cov":1,"pk":1},{"t":"09-19","obs":512.1,"mid":644.5,"lo":419.5,"hi":894.4,"top":510.1,"cov":1,"pk":1},{"t":"09-19","obs":442.1,"mid":665.0,"lo":414.8,"hi":915.3,"top":501.5,"cov":1,"pk":1},{"t":"09-19","obs":276.8,"mid":343.9,"lo":30.9,"hi":593.9,"top":377.3,"cov":1,"pk":1},{"t":"09-19","obs":197.0,"mid":240.6,"lo":0.0,"hi":490.5,"top":303.9,"cov":1,"pk":0},{"t":"09-20","obs":60.9,"mid":75.8,"lo":69.1,"hi":325.7,"top":90.7,"cov":0,"pk":0},{"t":"09-22","obs":9.2,"mid":8.6,"lo":1.9,"hi":14.0,"top":33.0,"cov":1,"pk":0},{"t":"10-03","obs":42.9,"mid":87.0,"lo":64.3,"hi":336.9,"top":111.9,"cov":0,"pk":0},{"t":"10-04","obs":158.4,"mid":168.7,"lo":102.4,"hi":418.7,"top":213.9,"cov":1,"pk":0},{"t":"10-08","obs":322.1,"mid":209.4,"lo":184.0,"hi":459.3,"top":214.6,"cov":1,"pk":1},{"t":"10-08","obs":344.2,"mid":319.9,"lo":271.4,"hi":569.8,"top":253.5,"cov":1,"pk":1},{"t":"10-09","obs":215.5,"mid":194.1,"lo":0.0,"hi":444.0,"top":249.4,"cov":1,"pk":1},{"t":"10-09","obs":135.0,"mid":148.6,"lo":142.0,"hi":398.6,"top":164.6,"cov":0,"pk":0},{"t":"10-11","obs":65.9,"mid":55.0,"lo":48.4,"hi":60.4,"top":64.8,"cov":0,"pk":0},{"t":"10-17","obs":29.9,"mid":19.7,"lo":13.1,"hi":25.1,"top":53.1,"cov":0,"pk":0},{"t":"10-18","obs":910.6,"mid":688.7,"lo":664.7,"hi":938.6,"top":888.7,"cov":1,"pk":1},{"t":"10-18","obs":876.0,"mid":673.1,"lo":499.5,"hi":923.0,"top":771.6,"cov":1,"pk":1},{"t":"10-18","obs":665.3,"mid":609.7,"lo":374.8,"hi":859.6,"top":658.0,"cov":1,"pk":1},{"t":"10-18","obs":381.4,"mid":374.6,"lo":0.0,"hi":624.5,"top":476.9,"cov":1,"pk":1},{"t":"10-19","obs":520.0,"mid":246.6,"lo":232.1,"hi":496.6,"top":501.6,"cov":0,"pk":1},{"t":"10-20","obs":591.9,"mid":352.7,"lo":323.3,"hi":602.6,"top":577.2,"cov":1,"pk":1},{"t":"10-20","obs":600.0,"mid":453.8,"lo":387.7,"hi":703.7,"top":688.9,"cov":1,"pk":1},{"t":"10-20","obs":624.3,"mid":456.1,"lo":387.1,"hi":706.0,"top":662.7,"cov":1,"pk":1},{"t":"10-20","obs":442.1,"mid":421.5,"lo":359.0,"hi":671.4,"top":549.1,"cov":1,"pk":1},{"t":"10-20","obs":304.7,"mid":326.6,"lo":155.1,"hi":576.6,"top":434.5,"cov":1,"pk":1},{"t":"10-20","obs":255.5,"mid":255.0,"lo":55.7,"hi":504.9,"top":347.4,"cov":1,"pk":1},{"t":"10-20","obs":197.0,"mid":193.4,"lo":129.1,"hi":443.4,"top":226.0,"cov":1,"pk":0},{"t":"10-21","obs":120.6,"mid":132.2,"lo":124.8,"hi":382.1,"top":93.8,"cov":0,"pk":0},{"t":"10-22","obs":71.1,"mid":54.7,"lo":48.1,"hi":60.1,"top":37.7,"cov":0,"pk":0},{"t":"10-23","obs":206.2,"mid":108.2,"lo":100.6,"hi":358.1,"top":81.1,"cov":1,"pk":1},{"t":"10-24","obs":396.3,"mid":327.7,"lo":292.4,"hi":577.7,"top":242.0,"cov":1,"pk":1},{"t":"10-24","obs":403.9,"mid":351.2,"lo":316.8,"hi":601.2,"top":267.6,"cov":1,"pk":1},{"t":"10-24","obs":287.7,"mid":269.2,"lo":138.0,"hi":519.2,"top":272.4,"cov":1,"pk":1},{"t":"10-24","obs":235.1,"mid":223.7,"lo":171.1,"hi":473.6,"top":219.9,"cov":1,"pk":1},{"t":"10-24","obs":207.0,"mid":183.2,"lo":176.5,"hi":433.1,"top":156.5,"cov":1,"pk":1},{"t":"10-26","obs":267.7,"mid":223.7,"lo":210.2,"hi":473.6,"top":174.1,"cov":1,"pk":1},{"t":"10-26","obs":262.5,"mid":216.4,"lo":208.9,"hi":466.3,"top":198.8,"cov":1,"pk":1},{"t":"10-29","obs":67.5,"mid":56.5,"lo":49.9,"hi":61.9,"top":30.2,"cov":0,"pk":0},{"t":"11-22","obs":336.7,"mid":314.9,"lo":274.7,"hi":564.8,"top":113.6,"cov":1,"pk":1},{"t":"11-22","obs":365.4,"mid":314.0,"lo":301.6,"hi":564.0,"top":151.2,"cov":1,"pk":1},{"t":"11-22","obs":268.2,"mid":211.7,"lo":47.9,"hi":461.6,"top":197.2,"cov":1,"pk":1},{"t":"11-22","obs":210.4,"mid":162.6,"lo":15.0,"hi":412.5,"top":176.5,"cov":1,"pk":1},{"t":"11-22","obs":157.9,"mid":127.5,"lo":71.4,"hi":377.5,"top":133.2,"cov":1,"pk":0},{"t":"11-23","obs":84.9,"mid":76.9,"lo":70.2,"hi":326.8,"top":64.1,"cov":1,"pk":0},{"t":"12-08","obs":146.4,"mid":111.3,"lo":103.3,"hi":361.2,"top":43.2,"cov":1,"pk":0},{"t":"12-09","obs":82.6,"mid":76.2,"lo":68.2,"hi":326.1,"top":41.1,"cov":1,"pk":0},{"t":"12-10","obs":85.1,"mid":78.9,"lo":71.0,"hi":328.9,"top":58.6,"cov":1,"pk":0},{"t":"12-20","obs":175.1,"mid":170.1,"lo":162.2,"hi":420.1,"top":129.8,"cov":1,"pk":0},{"t":"12-20","obs":153.1,"mid":168.4,"lo":160.5,"hi":418.4,"top":101.9,"cov":0,"pk":0},{"t":"12-21","obs":97.5,"mid":96.2,"lo":88.3,"hi":346.2,"top":63.4,"cov":1,"pk":0},{"t":"12-31","obs":18.1,"mid":22.0,"lo":14.1,"hi":27.1,"top":10.6,"cov":1,"pk":0}];
+
+const monthly_cov=[88.9,93.1,90.3,94.7,99.1,95.1,99.5,100,91.1,78.5,93.8,89.7];
+const months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+(function wait(){
+  if(typeof Chart==='undefined'){setTimeout(wait,50);return;}
+
+  const dark=matchMedia('(prefers-color-scheme:dark)').matches;
+  const gc=dark?'rgba(255,255,255,.07)':'rgba(0,0,0,.07)';
+  const tc=dark?'#c2c0b6':'#555';
+  const bf=dark?'rgba(29,158,117,.22)':'rgba(29,158,117,.18)';
+  const bb='rgba(29,158,117,.65)';
+
+  const labels=D.map(d=>d.t);
+
+  const floodPlugin={id:'fl',afterDraw(chart){
+    const{ctx,chartArea:{left,right},scales:{y}}=chart;
+    const yp=y.getPixelForValue(200);
+    ctx.save();ctx.strokeStyle='rgba(186,117,23,.8)';ctx.lineWidth=1.2;ctx.setLineDash([5,4]);
+    ctx.beginPath();ctx.moveTo(left,yp);ctx.lineTo(right,yp);ctx.stroke();
+    ctx.setLineDash([]);ctx.fillStyle='rgba(186,117,23,.85)';ctx.font='10px sans-serif';
+    ctx.textAlign='right';ctx.fillText('flood alert 200 m³/s',right-4,yp-4);ctx.restore();
+  }};
+
+  const octAnnotPlugin={id:'oct',afterDraw(chart){
+    const{ctx,chartArea:{top,left,right},scales:{y,x}}=chart;
+    ctx.save();
+    const octIdx=D.findIndex(d=>d.t==='10-18'&&d.obs>900);
+    if(octIdx>-1){
+      const px=x.getPixelForValue(octIdx);const py=y.getPixelForValue(910.6);
+      ctx.fillStyle=dark?'#f09595':'#E24B4A';ctx.font='bold 10px sans-serif';
+      ctx.textAlign='center';ctx.fillText('910.6 m³/s',px,py-8);
+    }
+    const febIdx=D.findIndex(d=>d.t==='02-27'&&d.obs>720);
+    if(febIdx>-1){
+      const px=x.getPixelForValue(febIdx);const py=y.getPixelForValue(723.3);
+      ctx.fillStyle=dark?'#85b7eb':'#378ADD';ctx.font='10px sans-serif';
+      ctx.textAlign='center';ctx.fillText('723',px,py-8);
+    }
+    ctx.restore();
+  }};
+
+  const c1=document.getElementById('c1');
+  c1.style.width='100%';c1.style.height='300px';
+  c1.width=c1.parentElement.offsetWidth*(window.devicePixelRatio||1);
+  c1.height=300*(window.devicePixelRatio||1);
+
+  new Chart(c1,{
+    type:'line',plugins:[floodPlugin,octAnnotPlugin],
+    data:{labels,datasets:[
+      {label:'Band upper',data:D.map(d=>d.hi),fill:'+1',backgroundColor:bf,borderColor:bb,borderWidth:.8,pointRadius:0,tension:.2,order:5},
+      {label:'Band lower',data:D.map(d=>d.lo),fill:false,borderColor:bb,borderWidth:.8,pointRadius:0,tension:.2,order:6},
+      {label:'Q TOPKAPI',data:D.map(d=>d.top),borderColor:'#2E7D32',borderWidth:1,borderDash:[5,4],pointRadius:0,tension:.2,fill:false,order:4},
+      {label:'Qfor_mid',data:D.map(d=>d.mid),borderColor:'#1D9E75',borderWidth:1.8,pointRadius:0,tension:.2,fill:false,order:3},
+      {label:'QM observed',data:D.map(d=>d.obs),borderColor:'#1565C0',borderWidth:2,
+        pointRadius:D.map(d=>(d.pk&&!d.cov)?4:0),
+        pointBackgroundColor:'#E24B4A',pointBorderColor:'#E24B4A',
+        tension:.2,fill:false,order:1}
+    ]},
+    options:{
+      responsive:false,animation:{duration:0},
+      plugins:{legend:{display:false},
+        tooltip:{backgroundColor:dark?'rgba(30,34,48,.97)':'rgba(255,255,255,.97)',
+          titleColor:tc,bodyColor:tc,borderColor:bb,borderWidth:.5,
+          callbacks:{label:ctx=>{
+            const n=['Upper','Lower','Q TOPKAPI','Qfor_mid','QM observed'][ctx.datasetIndex];
+            return `${n}: ${Number(ctx.raw).toFixed(1)} m³/s`;
+          }}}},
+      scales:{
+        x:{ticks:{color:tc,font:{size:9},maxRotation:0,autoSkip:true,maxTicksLimit:12},grid:{color:gc}},
+        y:{min:0,ticks:{color:tc,font:{size:10},callback:v=>v>=1000?(v/1000).toFixed(1)+'k':v},
+           grid:{color:gc},title:{display:true,text:'Q [m³/s]',color:tc,font:{size:11}}}
+      }
+    }
+  });
+
+  const c2=document.getElementById('c2');
+  c2.style.width='100%';c2.style.height='130px';
+  c2.width=c2.parentElement.offsetWidth*(window.devicePixelRatio||1);
+  c2.height=130*(window.devicePixelRatio||1);
+
+  const barColors=monthly_cov.map(v=>
+    v>=95?'rgba(29,158,117,.75)':v>=90?'rgba(55,138,221,.75)':'rgba(226,75,74,.8)');
+
+  new Chart(c2,{
+    type:'bar',
+    data:{labels:months,datasets:[
+      {label:'Monthly coverage %',data:monthly_cov,backgroundColor:barColors,borderRadius:3,borderSkipped:false}
+    ]},
+    options:{
+      responsive:false,animation:{duration:0},
+      plugins:{legend:{display:false},
+        tooltip:{callbacks:{label:ctx=>`${ctx.raw}% coverage`}},
+        annotation:{annotations:{line1:{type:'line',yMin:90,yMax:90,borderColor:'rgba(186,117,23,.7)',borderWidth:1.2,borderDash:[4,3]}}}
+      },
+      scales:{
+        x:{ticks:{color:tc,font:{size:10}},grid:{display:false}},
+        y:{min:70,max:103,ticks:{color:tc,font:{size:9},callback:v=>v+'%'},
+           grid:{color:gc},
+           title:{display:true,text:'coverage %',color:tc,font:{size:10}}}
+      }
+    }
+  });
+})();
+</script>
